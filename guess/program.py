@@ -66,6 +66,8 @@ result_msg = {
 guess = Card(rank=0, suit="none")  # A place holder card
 guesses = 1  # there will always be 1 guess.
 
+print("\nGuess the card game!\n")
+
 while guess != the_card:
     # Guess rank amd suit input
     if guess.rank != the_card.rank:
@@ -109,9 +111,9 @@ while guess != the_card:
     # Final Result
     if guess == the_card:
         if guesses > 1:
-            print(result_msg['guesses'])
+            print(result_msg['guesses'].format(guesses))
         else:
-            print(result_msg['guess'])
+            print(result_msg['guess'].format(guesses))
 
         print(result_msg['final'].format(
             guess.rank,
@@ -120,4 +122,4 @@ while guess != the_card:
         )
 
 
-print("DONE!")
+print("\nDONE!\n")
