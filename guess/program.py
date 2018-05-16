@@ -59,7 +59,7 @@ suit_tester_msg = {
 result_msg = {
     'guesses': "It took you {} guesses.",
     'guess': "It took you {} guess. AMAZING.",
-    'final': "You got it! The {} of {}'s was the card.'",
+    'final': "You got it! The {} of {}'s was the card.",
 }
 
 # Guess Card setup
@@ -115,7 +115,7 @@ while guess != the_card:
 
         print(result_msg['final'].format(
             guess.rank,
-            guess.suit
+            symbols[guess.suit]
         )
         )
 
