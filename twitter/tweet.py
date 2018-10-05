@@ -19,7 +19,7 @@ logging.basicConfig(level=logging.DEBUG,
                     filemode='a')
 
 
-class TwitterAccount():
+class TwitterAccount:
     """Access to Twitter account using tweepy."""
 
     CONSUMER_KEY = environ.get('TWITTER_CONSUMER_KEY')
