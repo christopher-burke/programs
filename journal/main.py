@@ -7,14 +7,15 @@ def event_loop():
     """Program loop."""
     print('What do you want to journal?')
     cmd = None
+    journal_data = []
 
     while cmd != 'x':
         cmd = input('[L]ist entries, [A]dd an entry, E[x]it: ')
         cmd = cmd.lower().strip()
         if cmd == 'l':
-            print('listing...')
+            list_entries(journal_data)
         elif cmd == 'a':
-            print('adding...')
+            add_entry(journal_data)
         elif cmd != 'x':
             print(f"[{cmd}] command not found.")
 
@@ -23,7 +24,9 @@ def event_loop():
 
 def list_entries(data):
     """List journal entries."""
-    print(data)
+    entries = reversed(data)
+    for entry in entries:
+        print(entry)
 
 
 def add_entry(data):
