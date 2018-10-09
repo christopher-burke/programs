@@ -6,13 +6,17 @@ import journal
 
 
 def event_loop():
-    """Program loop."""
+    """
+    Program loop.
+
+    :return: None
+    """
     print('What do you want to journal?')
-    cmd = None
+    cmd = 'EMPTY'
     journal_name = 'default'
     journal_data = journal.load(journal_name)
 
-    while cmd != 'x':
+    while cmd != 'x' and cmd:
         cmd = input('[L]ist entries, [A]dd an entry, E[x]it: ')
         cmd = cmd.lower().strip()
         if cmd == 'l':
@@ -27,20 +31,32 @@ def event_loop():
 
 
 def list_entries(data):
-    """List journal entries."""
+    """
+    List journal entries.
+
+    :return: None
+    """
     entries = reversed(data)
     for idx, entry in enumerate(entries, 1):
         print(f'* [{idx}] {entry}')
 
 
 def add_entry(data):
-    """Add journal entries."""
+    """
+    Add journal entries.
+
+    :return: None
+    """
     text = input('Enter your entry: ')
     journal.add_entry(text, data)
 
 
 def main():
-    """Journal Main function."""
+    """
+    Journal Main function.    
+
+    :return: None
+    """
     event_loop()
 
 

@@ -1,11 +1,18 @@
-
-import os
+#!/usr/bin/env python3
 
 """Journal Module."""
 
 
+import os
+
+
 def load(name):
-    # todo: populate from file if it exists
+    """
+    Create and load a new journal.
+
+    :param name: The base name of the journal to load.
+    :return: A new journal data structure populated with the file data.
+    """
     data = []
     filename = get_full_pathname(name)
     if os.path.exists(filename):
@@ -16,7 +23,13 @@ def load(name):
 
 
 def save(name, journal_data):
-    """Save the journal."""
+    """
+    Save the journal to file.
+
+    :param name: The base name of the journal to load.
+    :param journal_data: Journal data to be saved.
+    :return: None
+    """
     filename = get_full_pathname(name)
     print(f'Using : {filename}')
     with open(filename, 'w') as fout:
@@ -25,13 +38,24 @@ def save(name, journal_data):
 
 
 def get_full_pathname(name):
-    """Return the full path of the named journal."""
+    """
+    Return the full path of the named journal.
+
+    :param name: The base name of the journal.
+    :return: filename path
+    """
     filename = os.path.join('.', 'journals', f'{name}.jrl')
     filename = os.path.abspath(filename)
     return filename
 
 
 def add_entry(text, journal_data):
+    """
+    Add entry to journal.
+
+    :param test: Entry to be added.
+    :param journal_data: Journal data to be saved.
+    :return: None
+    """
     # todo: add entry
     journal_data.append(text)
-    return None
