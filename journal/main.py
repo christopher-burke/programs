@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-"""Journal App"""
+"""Journal App."""
 
 
 def event_loop():
@@ -25,8 +25,8 @@ def event_loop():
 def list_entries(data):
     """List journal entries."""
     entries = reversed(data)
-    for entry in entries:
-        print(entry)
+    for idx, entry in enumerate(entries, 1):
+        print(f'* [{idx}] {entry}')
 
 
 def add_entry(data):
