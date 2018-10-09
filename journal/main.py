@@ -2,12 +2,15 @@
 
 """Journal App."""
 
+import journal
+
 
 def event_loop():
     """Program loop."""
     print('What do you want to journal?')
     cmd = None
-    journal_data = []
+    journal_name = 'default'
+    journal_data = journal.load(journal_name)
 
     while cmd != 'x':
         cmd = input('[L]ist entries, [A]dd an entry, E[x]it: ')
@@ -20,6 +23,7 @@ def event_loop():
             print(f"[{cmd}] command not found.")
 
     print("Done, thank you.")
+    journal.save(journal_name, journal_data)
 
 
 def list_entries(data):
@@ -32,7 +36,7 @@ def list_entries(data):
 def add_entry(data):
     """Add journal entries."""
     text = input('Enter your entry: ')
-    data.append(text)
+    journal.add_entry(text, data)
 
 
 def main():
