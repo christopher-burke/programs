@@ -7,7 +7,10 @@ import cat_service
 
 
 def main():
-    """Main function."""
+    """Run LOLCat factory.
+
+    :return: None
+    """
     folder = output_folder()
     download_cats(folder)
 
@@ -15,7 +18,8 @@ def main():
 def output_folder():
     """Create folder for output.
 
-    :return: Full path to download folder."""
+    :return: Full path to download folder.
+    """
     folder = 'cat_pictures'
     base_folder = os.path.dirname(__file__)
     full_path = os.path.join(base_folder, folder)
@@ -27,6 +31,7 @@ def output_folder():
 
 
 def download_cats(folder, count=8):
+    """Download cat pictures."""
     cat_count = count + 1
     for i in range(1, cat_count):
         name = f'lolcat_{i}'
