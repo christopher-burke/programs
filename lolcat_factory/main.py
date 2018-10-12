@@ -4,6 +4,8 @@
 
 import os
 import cat_service
+import subprocess
+import platform
 
 
 def main():
@@ -13,6 +15,7 @@ def main():
     """
     folder = output_folder()
     download_cats(folder)
+    display_cats(folder)
 
 
 def output_folder():
@@ -36,6 +39,22 @@ def download_cats(folder, count=8):
     for i in range(1, cat_count):
         name = f'lolcat_{i}'
         cat_service.get_cat(folder, name)
+
+
+def display_cats(folder: str):
+    """Display the folder to the user.
+
+    Support for macOS, Windows and Linux(Ubuntu).
+    :return: None
+    """
+    os_open = {'Darwin': 'open',
+               'Windows': 'explorer',
+               'Linux': 'xdg-open'}
+    try:
+        command = f'{os_open[platform.system()]}'
+        subprocess.call([command, folder])
+    except KeyError:
+        print(f'Your OS is not supported for opening `{folder}`.')
 
 
 if __name__ == "__main__":
