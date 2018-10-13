@@ -102,3 +102,12 @@ venv.bak/
 
 # mypy
 .mypy_cache/
+
+
+# VS Code
+.vscode/
+
+# Ignore image files.
+*.jpeg
+*.jpg 
+*.png
