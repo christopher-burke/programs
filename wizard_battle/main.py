@@ -2,6 +2,8 @@
 
 """Wizard Battle Program."""
 
+import time
+import random
 from actors import Wizard, Creature
 
 
@@ -22,9 +24,19 @@ def game_loop():
     hero = Wizard('Gandolf', 75)
 
     while True:
+
+        active_creature = random.choice(creatures)
+        print(f'A {active_creature} has appeared from a dark forest...')
+
         cmd = input('Do you [a]ttack, [r]unaway, or [l]ook around? ')
         if cmd.lower() == 'a':
-            print('attack')
+            if hero.attack(active_creature):
+                creatures.remove(active_creature)
+            else:
+                print(f'{hero.name} needs time to recover...')
+                time.sleep(5)
+                print(f'{hero.name} returns!')
+
         elif cmd.lower() == 'r':
             print('runaway')
         elif cmd.lower() == 'l':
