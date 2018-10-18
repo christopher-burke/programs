@@ -111,3 +111,6 @@ venv.bak/
 *.jpeg
 *.jpg 
 *.png
+
+# lolcat factory
+lolcat_factory/cat_pictures/*
