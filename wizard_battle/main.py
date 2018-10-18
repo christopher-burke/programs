@@ -4,24 +4,40 @@
 
 import time
 import random
-from actors import Wizard, Creature
+from actors import Wizard, Creature, SmallAnimal, Dragon
 
 
 def main():
+    """Begin the Wizard Battle.
+
+    The wizard battle program entry point.
+    """
     game_loop()
 
 
 def game_loop():
-
+    """Game loop."""
     creatures = [
-        Creature('Toad', 1),
-        Creature('Tiger', 12),
-        Creature('Bat', 3),
-        Creature('Dragon', 50),
-        Creature('Evil Wizard', 1000),
+        SmallAnimal(name='Toad',
+                    level=1),
+
+        Creature(name='Tiger',
+                 level=12),
+
+        SmallAnimal(name='Bat',
+                    level=3),
+
+        Dragon(name='Dragon',
+               level=50,
+               scale_thickness=75,
+               fire_breathing=True),
+
+        Wizard(name='Evil Wizard',
+               level=1000),
     ]
 
-    hero = Wizard('Gandolf', 75)
+    hero = Wizard(name='Gandolf',
+                  level=75)
 
     while True:
 
@@ -38,9 +54,11 @@ def game_loop():
                 print(f'{hero.name} returns!')
 
         elif cmd.lower() == 'r':
-            print('runaway')
+            print(f'{hero.name} runs away!')
         elif cmd.lower() == 'l':
-            print('look around')
+            print(f'{hero.name} looks around and sees:')
+            for creature in creatures:
+                print(f'{creature}.')
         else:
             print('Exiting...')
             break
@@ -48,3 +66,4 @@ def game_loop():
 
 if __name__ == "__main__":
     main()
+    print(f'Thank you for playing.')

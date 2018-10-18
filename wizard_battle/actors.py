@@ -21,11 +21,14 @@ class Creature:
 
 
 class Wizard(Creature):
-    def attack(self, creature):
+    """Wizard actor in Wizard Battle."""
+
+    def attack(self, creature) -> bool:
+        """Wizard Attack method."""
         print(f'{self.name} attacks {creature.name}!')
 
-        my_roll = random.randint(1, 12) * self.level
-        creature_roll = random.randint(1, 12) * creature.level
+        my_roll = self.get_defensive_roll()
+        creature_roll = creature.get_defensive_roll()
 
         print(f'{self.name} roll [{my_roll}].')
         print(f'{creature.name} roll [{creature_roll}].')
@@ -39,10 +42,24 @@ class Wizard(Creature):
 
 
 class Dragon(Creature):
-    def __init__(self, *args, **kwargs):
-        return super().__init__(*args, **kwargs)
+    """Dragon in Wizard Battle."""
+
+    def __init__(self, name, level, scale_thickness, fire_breathing, *args, **kwargs):
+        super().__init__(name, level, *args, **kwargs)
+        self.scale_thickness = scale_thickness
+        self.fire_breathing = fire_breathing
+
+    def get_defensive_roll(self):
+        base_roll = super().get_defensive_roll()
+        fire_mod = 5 if self.fire_breathing else 1
+        scale_mod = self.scale_thickness // 10
+        return int(base_roll * fire_mod * scale_mod)
 
 
-class Ork(Creature):
-    def __init__(self, *args, **kwargs):
-        return super().__init__(*args, **kwargs)
+class SmallAnimal(Creature):
+    """Small Animal in Wizard Battle."""
+
+    def get_defensive_roll(self):
+        base_roll = super().get_defensive_roll()
+        print(base_roll)
+        return int(base_roll // 2)
