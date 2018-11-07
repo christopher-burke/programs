@@ -1,0 +1,12 @@
+body {
+    background: black;
+    color: white;
+    font-family: 'Roboto Mono',
+        monospace;
+    font-size: 32;
+}
+
+body span {
+
+    font-size: 75;
+}
