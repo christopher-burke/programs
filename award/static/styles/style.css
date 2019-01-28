@@ -3,10 +3,10 @@ body {
     color: white;
     font-family: 'Roboto Mono',
         monospace;
-    font-size: 32;
+    font-size: 32px;
 }
 
 body span {
 
-    font-size: 75;
+    font-size: 200px;
 }
