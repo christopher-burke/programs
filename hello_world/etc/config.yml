@@ -1,4 +1,0 @@
-## Runtime configuration for the hello_world application.
-##
-core:
-  logging: WARN
